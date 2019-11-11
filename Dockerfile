@@ -10,10 +10,10 @@ ARG fastqc_version=v0.11.8
 
 ENV package_name fastqc_${fastqc_version}.zip
 
-ADD http://www.bioinformatics.babraham.ac.uk/projects/fastqc/${fastqc_version} /tmp/
+ADD http://www.bioinformatics.babraham.ac.uk/projects/fastqc/${package_name} /tmp/
 
-RUN cd /opt/ && unzip /tmp/${fastqc_version} \
-    && rm /tmp/${fastqc_version} \
+RUN cd /opt/ && unzip /tmp/${package_name} \
+    && rm /tmp/${package_name} \
     && apk update \
     && apk add perl \
     && chmod 755 /opt/FastQC/fastqc
